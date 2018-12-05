@@ -535,8 +535,9 @@ function (_React$Component) {
   _createClass(TodoListItem, [{
     key: "toggleDone",
     value: function toggleDone() {
+      var done = this.state.done;
       this.setState({
-        done: !this.done
+        done: !done
       });
     }
   }, {

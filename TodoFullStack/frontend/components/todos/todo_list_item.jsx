@@ -13,8 +13,9 @@ class TodoListItem extends React.Component {
   }
 
   toggleDone() {
+    const { done } = this.state;
     this.setState({
-      done: !this.done,
+      done: !done,
     });
   }
 
