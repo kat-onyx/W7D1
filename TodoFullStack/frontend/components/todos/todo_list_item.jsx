@@ -1,7 +1,33 @@
 import React from 'react';
 
-const TodoListItem = ({ todo }) => (
-  <li>{todo.title}</li>
-);
+
+class TodoListItem extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      done: props.done,
+    };
+
+    this.toggleDone = this.toggleDone.bind(this);
+  }
+
+  toggleDone() {
+    this.setState({
+      done: !this.done,
+    });
+  }
+
+  render() {
+    const { todo } = this.props;
+    const { done } = this.state;
+    return (
+      <li>
+        {todo.title}
+        <button type="submit" onSubmit={this.toggleDone}>{done === true ? 'Undo' : 'Done'}</button>
+      </li>
+    );
+  }
+}
 
 export default TodoListItem;
